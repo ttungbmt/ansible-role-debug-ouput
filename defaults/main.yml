@@ -1,0 +1,48 @@
+---
+# Default variables for the debug_inventory role.
+# You can override these variables in your playbook or inventory as needed.
+
+# Directory where all debug output files will be written.
+# Default is `./debug_output` in the playbook's working directory.
+debug_output_dir: ".debug_output"
+
+# Path to the inventory file. If left null, the role attempts to detect
+# the inventory automatically using the first entry in `ansible_inventory_sources`.
+# You may override this with a specific file, e.g. "inventory.yml".
+debug_inventory_file: null
+
+# Whether to write a file containing all hostvars for the entire cluster.
+# Enabling this can produce a very large file for large inventories.
+debug_write_cluster_hostvars: true
+
+# Keys to exclude when filtering per-host variables. Many of these keys are large
+# or provide context that is duplicated elsewhere (e.g. groups, hostvars).
+# You can add or remove keys as required for your environment.
+debug_exclude_keys:
+  - groups
+  - hostvars
+  - vars
+  - ansible_facts
+  - ansible_env
+  - environment
+  - group_names
+  - inventory_hostname
+  - inventory_hostname_short
+  - inventory_dir
+  - inventory_file
+  - ansible_inventory_sources
+  - playbook_dir
+  - ansible_config_file
+  - ansible_version
+  - ansible_play_hosts
+  - ansible_play_hosts_all
+  - ansible_play_batch
+  - ansible_delegated_vars
+  - ansible_skip_tags
+  - ansible_run_tags
+  - ansible_forks
+  - ansible_verbosity
+  - ansible_limit
+  - ansible_check_mode
+  - ansible_diff_mode
+  - omit
